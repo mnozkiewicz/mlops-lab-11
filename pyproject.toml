@@ -4,9 +4,20 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "boto3>=1.42.14",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.12.0",
+    "scikit-learn==1.7.2",
+    "skl2onnx>=1.19.1",
+    "torch>=2.9.1",
+    "transformers>=4.57.3",
+]
 
 [dependency-groups]
-integration = []
+integration = [
+    "pytest>=9.0.2",
+    "ruff>=0.14.10",
+]
 deployment = []
 inference = []
