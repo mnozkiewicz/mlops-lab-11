@@ -44,6 +44,9 @@ jobs:
       - name: Install dependencies
         run: uv sync --group integration --no-default-groups
 
+      - name: Download artifacts
+        run: uv run ./main.py
+
       - name: Run ruff
         run: uv run ruff check .
 
@@ -69,6 +72,7 @@ jobs:
           aws-region: us-east-1
       - name: Setup uv
         uses: astral-sh/setup-uv@v7
+        
       - name: Install dependencies
         run: uv sync --group integration --no-default-groups
 
