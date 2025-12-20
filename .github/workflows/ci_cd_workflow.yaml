@@ -43,7 +43,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
-
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v7
       - name: Install dependencies
         run: uv sync --group integration,deployment --no-default-groups
 
