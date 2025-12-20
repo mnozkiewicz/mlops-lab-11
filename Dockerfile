@@ -1,4 +1,3 @@
-# Dockerfile.dev
 # Build stage
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS builder
 
@@ -27,4 +26,5 @@ COPY .env ./.env
 COPY artifacts/onnx_model ./artifacts/onnx_model
 
 # Run the application
-CMD ["uvicorn", "sentiment_app.app:app", "--host", "0.0.0.0", "--port", "8000"]
+ENTRYPOINT ["python", "-m", "awslambdaric"]
+CMD ["app.handler"]

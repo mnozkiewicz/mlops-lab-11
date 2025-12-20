@@ -1,9 +1,12 @@
 from fastapi import FastAPI
+from mangum import Mangum
 from .api.models.request import PredictRequest, PredictResponse
 from .model.predictor import PredictionModel
 
 
 app = FastAPI(title="Sentiment Inference API")
+handler = Mangum(app)
+
 predictor = PredictionModel()
 
 

@@ -3,7 +3,7 @@ from skl2onnx import convert_sklearn
 from skl2onnx.common.data_types import FloatTensorType
 from pathlib import Path
 
-from settings import Settings
+from .settings import Settings
 
 
 def export_classifier_to_onnx(settings: Settings):
@@ -25,8 +25,3 @@ def export_classifier_to_onnx(settings: Settings):
     print(f"Saving ONNX model to {output_path}...")
     with open(output_path, "wb") as f:
         f.write(onnx_model.SerializeToString())
-
-
-if __name__ == '__main__':
-    settings = Settings()
-    export_classifier_to_onnx(settings)

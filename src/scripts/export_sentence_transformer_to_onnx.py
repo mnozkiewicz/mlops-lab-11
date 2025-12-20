@@ -1,7 +1,7 @@
 import os
-from settings import Settings
 import torch
 from transformers import AutoTokenizer, AutoModel
+from .settings import Settings
 
 
 # Wrapper to include Mean Pooling in the ONNX graph
@@ -67,8 +67,3 @@ def export_model_to_onnx(settings: Settings):
 
     print(f"ONNX model exported to {onnx_path}")
     return onnx_path
-
-
-if __name__ == '__main__':
-    settings = Settings()
-    export_model_to_onnx(settings)
