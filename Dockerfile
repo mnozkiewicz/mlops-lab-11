@@ -6,7 +6,7 @@ WORKDIR /app
 # Install dependencies
 COPY pyproject.toml ./
 # Sync only inference group to .venv
-RUN uv sync --group inference --no-install-project --no-default-groups
+RUN uv sync --group deployment --no-install-project --no-default-groups
 
 # Runtime stage
 FROM python:3.12-slim-bookworm
@@ -27,4 +27,4 @@ COPY artifacts/onnx_model ./artifacts/onnx_model
 
 # Run the application
 ENTRYPOINT ["python", "-m", "awslambdaric"]
-CMD ["app.handler"]
+CMD ["sentiment_app.app.handler"]
