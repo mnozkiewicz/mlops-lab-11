@@ -1,6 +1,7 @@
 import joblib
 from skl2onnx import convert_sklearn
 from skl2onnx.common.data_types import FloatTensorType
+from pathlib import Path
 
 from settings import Settings
 
@@ -17,9 +18,12 @@ def export_classifier_to_onnx(settings: Settings):
         model=classifier,
         initial_types=initial_type
     )
+    
+    output_path = Path(settings.onnx_classifier_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    print(f"Saving ONNX model to {settings.onnx_classifier_path}...")
-    with open(settings.onnx_classifier_path, "wb") as f:
+    print(f"Saving ONNX model to {output_path}...")
+    with open(output_path, "wb") as f:
         f.write(onnx_model.SerializeToString())
 
 
