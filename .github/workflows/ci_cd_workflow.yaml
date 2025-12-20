@@ -97,7 +97,7 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           sam deploy \
-            --template-file sam-template.yaml \
+            --template-file ./sam-template.yaml \
             --stack-name sentiment-app-stack \
             --image-repository $REGISTRY/$REPOSITORY \
             --parameter-overrides \
