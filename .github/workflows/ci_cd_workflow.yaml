@@ -46,7 +46,7 @@ jobs:
       - name: Setup uv
         uses: astral-sh/setup-uv@v7
       - name: Install dependencies
-        run: uv sync --group integration,deployment --no-default-groups
+        run: uv sync --group integration --no-default-groups
 
       - name: Download artifacts
         run: uv run ./main.py
