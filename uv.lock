@@ -439,6 +439,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },
+    { name = "mangum" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "tokenizers" },
@@ -447,16 +448,13 @@ dependencies = [
 
 [package.dev-dependencies]
 deployment = [
-    { name = "mangum" },
     { name = "onnxruntime" },
 ]
 inference = [
-    { name = "mangum" },
     { name = "onnxruntime" },
 ]
 integration = [
     { name = "boto3" },
-    { name = "mangum" },
     { name = "onnxruntime" },
     { name = "pytest" },
     { name = "ruff" },
@@ -469,6 +467,7 @@ integration = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi", specifier = ">=0.125.0" },
+    { name = "mangum", specifier = ">=0.19.0" },
     { name = "pydantic", specifier = ">=2.12.5" },
     { name = "pydantic-settings", specifier = ">=2.12.0" },
     { name = "tokenizers", specifier = ">=0.22.1" },
@@ -476,17 +475,10 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-deployment = [
-    { name = "mangum", specifier = ">=0.19.0" },
-    { name = "onnxruntime", specifier = ">=1.23.2" },
-]
-inference = [
-    { name = "mangum", specifier = ">=0.19.0" },
-    { name = "onnxruntime", specifier = ">=1.23.2" },
-]
+deployment = [{ name = "onnxruntime", specifier = ">=1.23.2" }]
+inference = [{ name = "onnxruntime", specifier = ">=1.23.2" }]
 integration = [
     { name = "boto3", specifier = ">=1.42.14" },
-    { name = "mangum", specifier = ">=0.19.0" },
     { name = "onnxruntime", specifier = ">=1.23.2" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "ruff", specifier = ">=0.14.10" },
