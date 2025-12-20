@@ -12,18 +12,6 @@ on:
           - all
         default: all
 
-
-  # inputs:
-  #   steps:
-  #     description: "Select which steps of the pipeline should run"
-  #       required: true
-  #       type: choice
-  #       options:
-  #         - integration
-  #         - all
-  #       default: all
-
-
 env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: sentiment-app-onnx
@@ -37,6 +25,14 @@ jobs:
     steps:
       - name: Checkout code repo
         uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: us-east-1
 
       - name: Setup uv
         uses: astral-sh/setup-uv@v7
@@ -70,6 +66,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
+
       - name: Setup uv
         uses: astral-sh/setup-uv@v7
         
