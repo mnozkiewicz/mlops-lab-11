@@ -426,52 +426,60 @@ name = "mlops-lab-11"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "boto3" },
     { name = "fastapi" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
-    { name = "scikit-learn" },
-    { name = "skl2onnx" },
-    { name = "torch" },
-    { name = "transformers" },
+    { name = "tokenizers" },
     { name = "uvicorn" },
 ]
 
 [package.dev-dependencies]
 deployment = [
-    { name = "tokenizer" },
+    { name = "onnxruntime" },
+    { name = "tokenizers" },
 ]
 inference = [
     { name = "onnxruntime" },
-    { name = "tokenizer" },
+    { name = "tokenizers" },
 ]
 integration = [
+    { name = "boto3" },
+    { name = "onnxruntime" },
     { name = "pytest" },
     { name = "ruff" },
+    { name = "scikit-learn" },
+    { name = "skl2onnx" },
+    { name = "torch" },
+    { name = "transformers" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "boto3", specifier = ">=1.42.14" },
     { name = "fastapi", specifier = ">=0.125.0" },
     { name = "pydantic", specifier = ">=2.12.5" },
     { name = "pydantic-settings", specifier = ">=2.12.0" },
-    { name = "scikit-learn", specifier = "==1.7.2" },
-    { name = "skl2onnx", specifier = ">=1.19.1" },
-    { name = "torch", specifier = ">=2.9.1" },
-    { name = "transformers", specifier = ">=4.57.3" },
+    { name = "tokenizers", specifier = ">=0.22.1" },
     { name = "uvicorn", specifier = ">=0.38.0" },
 ]
 
 [package.metadata.requires-dev]
-deployment = [{ name = "tokenizer", specifier = ">=3.6.2" }]
+deployment = [
+    { name = "onnxruntime", specifier = ">=1.23.2" },
+    { name = "tokenizers", specifier = ">=0.22.1" },
+]
 inference = [
     { name = "onnxruntime", specifier = ">=1.23.2" },
-    { name = "tokenizer", specifier = ">=3.6.2" },
+    { name = "tokenizers", specifier = ">=0.22.1" },
 ]
 integration = [
+    { name = "boto3", specifier = ">=1.42.14" },
+    { name = "onnxruntime", specifier = ">=1.23.2" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "ruff", specifier = ">=0.14.10" },
+    { name = "scikit-learn", specifier = "==1.7.2" },
+    { name = "skl2onnx", specifier = ">=1.19.1" },
+    { name = "torch", specifier = ">=2.9.1" },
+    { name = "transformers", specifier = ">=4.57.3" },
 ]
 
 [[package]]
@@ -1286,15 +1294,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/b7/4d/08c89e34946fce2aec4fbb45c9016efd5f4d7f24af8e5d93296e935631d8/threadpoolctl-3.6.0.tar.gz", hash = "sha256:8ab8b4aa3491d812b623328249fab5302a68d2d71745c8a4c719a2fcaba9f44e", size = 21274, upload-time = "2025-03-13T13:49:23.031Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/32/d5/f9a850d79b0851d1d4ef6456097579a9005b31fea68726a4ae5f2d82ddd9/threadpoolctl-3.6.0-py3-none-any.whl", hash = "sha256:43a0b8fd5a2928500110039e43a5eed8480b918967083ea48dc3ab9f13c4a7fb", size = 18638, upload-time = "2025-03-13T13:49:21.846Z" },
-]
-
-[[package]]
-name = "tokenizer"
-version = "3.6.2"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/e9/99/f8170b9c5029df79a5f8e3bd3dba136307e1291f8a872786d750f82668b5/tokenizer-3.6.2.tar.gz", hash = "sha256:60f6b7e389502bd076d0843c0f43987b3912620738cf8495b0015e536a524bb7", size = 132942, upload-time = "2025-12-12T15:59:14.58Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/96/23/fad15aa97fb3761cc89a7bed84b60cd25afae937bfac8eb2bf275adf0a67/tokenizer-3.6.2-py3-none-any.whl", hash = "sha256:60bab4bf36b155fe4d0935e01dfb04b27474b37b6c9b16c6dcef7d1e95428e2d", size = 83102, upload-time = "2025-12-12T15:59:13.129Z" },
 ]
 
 [[package]]

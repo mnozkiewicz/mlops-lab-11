@@ -5,9 +5,9 @@ FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS builder
 WORKDIR /app
 
 # Install dependencies
-COPY pyproject.toml uv.lock ./
+COPY pyproject.toml ./
 # Sync only inference group to .venv
-RUN uv sync --frozen --group integration --no-install-project
+RUN uv sync --group inference --no-install-project --no-default-groups
 
 # Runtime stage
 FROM python:3.12-slim-bookworm
