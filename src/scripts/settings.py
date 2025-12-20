@@ -14,7 +14,7 @@ class Settings(BaseSettings):
 
     onnx_classifier_path: str
     onnx_embedding_model_path: str
-    onnx_tokenizer_path: str
+    tokenizer_path: str
 
 
     model_config = SettingsConfigDict(

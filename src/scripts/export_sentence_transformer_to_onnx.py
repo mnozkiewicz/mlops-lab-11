@@ -63,7 +63,7 @@ def export_model_to_onnx(settings: Settings):
             dynamo=False,
         )
 
-    tokenizer.save_pretrained(os.path.dirname(settings.onnx_tokenizer_path))
+    tokenizer.save_pretrained(os.path.dirname(settings.tokenizer_path))
 
     print(f"ONNX model exported to {onnx_path}")
     return onnx_path
