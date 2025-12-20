@@ -23,6 +23,7 @@ integration = [
     "torch>=2.9.1",
     "transformers>=4.57.3",
     "onnxruntime>=1.23.2",
+    "httpx>=0.28.1",
 ]
 deployment = [
     "awslambdaric>=3.1.1",
