@@ -1,0 +1,7 @@
+
+# Virtual env
+.venv/*
+
+
+# artifacts / model files
+artifacts/*
